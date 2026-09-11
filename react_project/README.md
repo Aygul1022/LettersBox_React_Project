@@ -1,16 +1,114 @@
-# React + Vite
+# React Movie Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Bu proje, TMDB API kullanarak popüler filmleri listeleyen, arama yapan ve favorilere ekleme özelliği sunan bir React + Vite uygulamasıdır.
 
-Currently, two official plugins are available:
+## Özellikler
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Popüler filmleri listeleme
+- Film arama
+- Favorilere ekleme / çıkarma
+- Favori filmleri ayrı sayfada görüntüleme
+- `localStorage` ile favori verilerinin saklanması
+- React Router ile sayfa yönlendirmeleri
 
-## React Compiler
+## Teknolojiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- React Router DOM
+- TMDB API
 
-## Expanding the Oxlint configuration
+## Proje Yapısı
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```text
+react_project/
+├─ index.html
+├─ package.json
+├─ vite.config.js
+├─ public/
+├─ src/
+│  ├─ App.jsx
+│  ├─ main.jsx
+│  ├─ assets/
+│  ├─ components/
+│  │  ├─ MovieCard.jsx
+│  │  └─ Navbar.jsx
+│  ├─ contexts/
+│  │  └─ MovieContext.jsx
+│  ├─ css/
+│  ├─ pages/
+│  │  ├─ Favorites.jsx
+│  │  └─ Home.jsx
+│  └─ services/
+│     └─ api.js
+└─ README.md
+```
+
+## Kurulum
+
+1. Depoyu klonlayın
+2. Proje klasörüne girin
+3. Bağımlılıkları yükleyin
+
+```bash
+npm install
+```
+
+## Çalıştırma
+
+Geliştirme sunucusunu başlatmak için:
+
+```bash
+npm run dev
+```
+
+Uygulama varsayılan olarak şu adreste çalışır:
+
+```text
+http://localhost:5173/
+```
+
+## Build
+
+Production build almak için:
+
+```bash
+npm run build
+```
+
+Build çıktısı `dist` klasörüne yazılır.
+
+## Deployment
+
+Bu proje Vite tabanlı olduğu için Vercel veya Netlify üzerinde kolayca yayınlanabilir.
+
+### Vercel için önerilen ayarlar
+
+- Framework: Vite
+- Build Command: `npm run build`
+- Output Directory: `dist`
+
+### Netlify için önerilen ayarlar
+
+- Build Command: `npm run build`
+- Publish Directory: `dist`
+
+## API Anahtarı
+
+Bu proje şu an TMDB API anahtarını doğrudan kod içinde kullanıyor. Yayınlama yapmadan önce güvenlik açısından `VITE_TMDB_API_KEY` gibi bir ortam değişkeni kullanmanız önerilir.
+
+Örnek kullanım:
+
+```js
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+```
+
+## Notlar
+
+- Favoriler `localStorage` içinde saklanır.
+- Sayfa yenilendiğinde favoriler korunur.
+- Arama sonuçları TMDB üzerinden alınır.
+
+## Lisans
+
+Bu proje için özel bir lisans dosyası bulunmamaktadır. Kendi kullanımınız için düzenleyebilirsiniz.
