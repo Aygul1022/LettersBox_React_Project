@@ -78,31 +78,6 @@ npm run build
 
 Build çıktısı `dist` klasörüne yazılır.
 
-## Deployment
-
-Bu proje Vite tabanlı olduğu için Vercel veya Netlify üzerinde kolayca yayınlanabilir.
-
-### Vercel için önerilen ayarlar
-
-- Framework: Vite
-- Build Command: `npm run build`
-- Output Directory: `dist`
-
-### Netlify için önerilen ayarlar
-
-- Build Command: `npm run build`
-- Publish Directory: `dist`
-
-## TMDB API Anahtarı
-
-Yerel geliştirme için `react_project/.env.local` dosyasına `VITE_TMDB_API_KEY=...` ekleyin. Bu dosya Git tarafından yok sayılır ve repoya gönderilmemelidir. `VITE_` değişkenleri Vite tarafından tarayıcı paketine eklenir; bu yaklaşım yalnızca yerel geliştirme içindir ve yayımlanan sitede anahtarı ziyaretçilerden gizlemez.
-
-Vercel'de dağıtım yaparken TMDB isteklerini sunucu tarafında tutmak için `react_project/api/movies.js` işlevini kullanın, Vercel Root Directory değerini `react_project` ayarlayın ve `TMDB_API_KEY` değerini Vercel Project Settings > Environment Variables içine ekleyin. Yerel proxy testi için `react_project` klasöründe `vercel dev` çalıştırın.
-
-### Açığa çıkmış anahtarı döndürme
-
-Eski anahtar herkese açık depoya gönderildiği için `.env.local` kullanmak geçmiş sızıntıyı geri almaz. Eski anahtar daha önce açıktı; mümkünse TMDB'den yenileyin ve yeni anahtarı yalnızca Vercel sunucu ortamına kaydedin. Anahtarı sohbet veya kaynak kod üzerinden paylaşmayın.
-
 ## Notlar
 
 - Favoriler `localStorage` içinde saklanır.
